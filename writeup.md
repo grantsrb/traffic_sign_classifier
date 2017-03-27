@@ -18,7 +18,7 @@ The goals / steps of this project are the following:
 [image2]: ./examples/fake_data_hist.png "Fake Visualization"
 [image3a]: ./examples/before.png "Before"
 [image3b]: ./examples/after.png "After"
-[image3b]: ./examples/rotated.png "Rotation"
+[image3c]: ./examples/rotated.png "Rotation"
 [image4]: ./internet_images/keep_right_38.jpg "Keep Right"
 [image5]: ./internet_images/pedestrian_27.jpg "Pedestrian"
 [image6]: ./internet_images/priority_12.jpg "Priority"
@@ -290,6 +290,6 @@ The 60 km/h sign was incorrectly classified as a Roundabout Mandatory sign with 
 | Keep left | 0.0601183 |
 | Keep right | 0.0329059 |
 
-The Stop Sign was correctly classified with a confidence of 42.5%. The next nearest prediction, is strangely a yield sign which is triangular.
+The Stop Sign was correctly classified with a confidence of 42.5%. The next nearest prediction, is a yield sign which is triangular. The classifier must have noticed a similarity of the straight edges of the octagonal shape of the stop sign.
 
 
