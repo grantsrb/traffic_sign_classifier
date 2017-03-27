@@ -16,16 +16,16 @@ The goals / steps of this project are the following:
 
 [image1]: ./examples/data_hist.png "Visualization"
 [image2]: ./examples/fake_data_hist.png "Fake Visualization"
-[image3a]: ./examples/before.jpg "Before"
-[image3b]: ./examples/after.jpg "After"
-[image3b]: ./examples/rotated.jpg "Rotation"
-[image4]: ./examples/keep_right_38.jpg "Keep Right"
-[image5]: ./examples/pedestrian_27.jpg "Pedestrian"
-[image6]: ./examples/priority_12.jpg "Priority"
-[image7]: ./examples/row_11.jpg "Right of Way"
-[image8]: ./examples/speed_50_2.jpg "Speed 50"
-[image9]: ./examples/speed_60_3.jpg "Speed 60"
-[image10]: ./examples/stop_sign_14.jpg "Stop Sign"
+[image3a]: ./examples/before.png "Before"
+[image3b]: ./examples/after.png "After"
+[image3b]: ./examples/rotated.png "Rotation"
+[image4]: ./internet_images/keep_right_38.jpg "Keep Right"
+[image5]: ./internet_images/pedestrian_27.jpg "Pedestrian"
+[image6]: ./internet_images/priority_12.jpg "Priority"
+[image7]: ./internet_images/row_11.jpg "Right of Way"
+[image8]: ./internet_images/speed_50_2.jpg "Speed 50"
+[image9]: ./internet_images/speed_60_3.jpg "Speed 60"
+[image10]: ./internet_images/stop_sign_14.jpg "Stop Sign"
 
 
 ## Rubric Points
