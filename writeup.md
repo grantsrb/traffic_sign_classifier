@@ -32,15 +32,13 @@ The goals / steps of this project are the following:
 ###Here I will consider the [rubric points](https://review.udacity.com/#!/rubrics/481/view) individually and describe how I addressed each point in my implementation.  
 
 ---
-###Writeup / README
+### Writeup / README
 
-####1. Provide a Writeup / README that includes all the rubric points and how you addressed each one. You can submit your writeup as markdown or pdf. You can use this template as a guide for writing the report. The submission includes the project code.
-
-You're reading the README. Here is a link to my [project code](https://github.com/grantsrb/traffic_sign_classifier/blob/master/Traffic_Sign_Classifier.ipynb)
+Here is a link to my [project code](https://github.com/grantsrb/traffic_sign_classifier/blob/master/Traffic_Sign_Classifier.ipynb)
 
 ###Data Set Summary & Exploration
 
-####1. Provide a basic summary of the data set and identify where in your code the summary was done. In the code, the analysis should be done using python, numpy and/or pandas methods rather than hardcoding results manually.
+#### A Basic Summary of the Data
 
 The code for this step is contained in the fourth code cell of the IPython notebook.  
 
@@ -53,21 +51,18 @@ signs data set:
 * Image dimensions = (32, 32, 3)
 * Number of classes = 43
 
+The code for the following visualization is contained in the fifth and seventh code cell of the IPython notebook.
 
-####2. Include an exploratory visualization of the dataset and identify where the code is in your code file.
-
-The code for this step is contained in the fifth and seventh code cell of the IPython notebook.
-
-Here is an exploratory visualization of the data set. The first bar chart shows an unequal distribution of data. This can potentially make the classifier favor certain classifications over others. The second bar chart displays the distribution of data after rotated data was added. Images from classifications with fewer than 1000 samples were rotated -9, -4, 4, and 9 degrees and added to the dataset.
+Here is a visualization of the data set. The first bar chart shows an unequal distribution of data. This can potentially make the classifier favor certain classifications over others. The second bar chart displays the distribution of data after rotated data was added. Images from classifications with fewer than 1000 samples were rotated -9, -4, 4, and 9 degrees and added to the dataset.
 
 ![alt text][image1]
 ![alt text][image2]
 
-###Design and Test a Model Architecture
+### Design and Test a Model Architecture
 
-####1. Describe how, and identify where in your code, you preprocessed the image data. What techniques were chosen and why did you choose these techniques? Consider including images showing the output of each preprocessing technique. Pre-processing refers to techniques such as converting to grayscale, normalization, etc.
+#### Preprocessing Image Data
 
-The preprocessing is defined in code cell 6 and applied in code cell 7. 
+The preprocessing is defined in code cell 6 and applied to the data sets in code cell 7.
 
 I converted the images to grayscale because this seemed to give better results than the color counterparts. It was also recommended by LeCun in the paper "Traffic Sign Recognition with Multi-Scale Convolutional Networks." I never tried an inception net with the color images due to time restrictions. All nets I did try, however, performed better when the samples were grayscale.
 
@@ -82,9 +77,9 @@ Here is an example of a traffic sign image before and after preprocessing follow
 ![alt text][image3c]
 
 
-####2. Describe, and identify where in your code, what your final model architecture looks like including model type, layers, layer sizes, connectivity, etc.) Consider including a diagram and/or table describing the final model.
+#### Model Architecture
 
-The code for my final model is located in the 10th, 11th, and 12th cells of the ipython notebook.
+The code for my final neural net model is located in the 10th, 11th, and 12th cells of the ipython notebook.
 
 My final model was a derivative of the LeNet architecture. It consisted of the following layers all simply feeding forward to the next layer:
 
@@ -107,7 +102,7 @@ My final model was a derivative of the LeNet architecture. It consisted of the f
 
 
 
-####3. Describe how, and identify where in your code, you trained your model. The discussion can include the type of optimizer, the batch size, number of epochs and any hyperparameters such as learning rate.
+#### Neural Net Training
 
 The code for training the model is located in the 14th cell of the ipython notebook.
 
@@ -119,7 +114,7 @@ Instead of manually setting the epoch count, I created a function to monitor the
 
 The dropout probability was an interesting parameter because its optimal value was dependent on the architecture of the neural net. The best validation accuracy of 97% and test accuracy of 96% were found when dropout was performed once with a probability of 0.5 between the convolutions and fully connected layers.
 
-####4. Describe the approach taken for finding a solution. Include in the discussion the results on the training, validation and test sets and where in the code these were calculated. Your approach may have been an iterative process, in which case, outline the steps you took to get to the final solution and why you chose those steps. Perhaps your solution involved an already well known implementation or architecture. In this case, discuss why you think the architecture is suitable for the current problem.
+#### 4. Creative Approach
 
 The code for calculating the accuracy of the model is located in the 15th cell of the Ipython notebook.
 
@@ -147,24 +142,26 @@ After checking the certainties of my model's predictions, I noticed that is was 
 At this point I was aware that experimentation on most of my ideas for net architecture would take longer to test than I had time for. I started focussing on preprocessing to improve results further.
 
 
-###Test a Model on New Images
+### Test a Model on New Images
 
-####1. Choose five German traffic signs found on the web and provide them in the report. For each image, discuss what quality or qualities might be difficult to classify.
+#### Five German Traffic Signs (found on the web)
 
-Here are five German traffic signs that I found on the web:
+Here are five German traffic signs:
 
 ![alt text][image4] ![alt text][image5] ![alt text][image6]
 ![alt text][image7] ![alt text][image8] ![alt text][image9]
 ![alt text][image10]
 
-The first image could be difficult to classify due to the sharp edge on what is supposed to be a circular sign. The model, however, gave a correct prediction, so this must not have been a significant feature for the model.
+For many of the images, the brand that covers a portion of the image could make it more difficult for the classifier to perform. During preprocessing, the presence is less obvious, however it could still have a significant impact.
 
-The pedestrian sign is extremely similar to the general warning sign. Both are triangular with a long, thin, black detail in the triangle. My final model classified the pedestrian sign as a 30 km/h sign, however.
+The first image (Keep Right sign) could be difficult to classify due to the sharp edge on what is supposed to be a circular sign. The model, however, gave a correct prediction, so this must not have been a significant feature for the model.
 
-The speed signs would potentially be difficult to classify because the numbers are the only distinguishing characteristics. The outer circle is shared by a number of signs.
+The Pedestrian sign is extremely similar to the German General Warning sign which can prove difficult for the classifier. Both signs are triangular with a long, thin, black detail in the triangle.
+
+The speed signs would potentially be difficult to classify because the numbers are the only distinguishing characteristics between each of them. The outer circle is shared by a number of signs.
 
 
-####2. Discuss the model's predictions on these new traffic signs and compare the results to predicting on the test set. Identify where in your code predictions were made. At a minimum, discuss what the predictions were, the accuracy on these new predictions, and compare the accuracy to the accuracy on the test set (OPTIONAL: Discuss the results in more detail as described in the "Stand Out Suggestions" part of the rubric).
+#### Model Predictions (Web Images vs Test Set)
 
 The code for making predictions on my final model is located in the 18th cell of the Ipython notebook.
 
@@ -189,7 +186,7 @@ Noteably, 50 km/h sign was predicted correctly whereas the 60 km/h sign was not.
 Similarly for the Pedestrian sign, the prediction of General Caution is incorrect. Although the two signs do look paticularly similar when heavily pixelated. Regardless, the prediction indicates a low accuracy for pedestrian sign and low precision for the General Caution sign.
 
 
-####3. Describe how certain the model is when predicting on each of the five new images by looking at the softmax probabilities for each prediction and identify where in your code softmax probabilities were outputted. Provide the top 5 softmax probabilities for each image along with the sign type of each probability. (OPTIONAL: as described in the "Stand Out Suggestions" part of the rubric, visualizations can also be provided such as bar charts)
+#### Model Certainty on Web Images
 
 The code for making predictions on my final model is located in the 18th cell of the Ipython notebook.
 
