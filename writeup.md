@@ -142,7 +142,7 @@ After checking the certainties of my model's predictions, I noticed that is was 
 At this point I was aware that experimentation on most of my ideas for net architecture would take longer to test than I had time for. I started focussing on preprocessing to improve results further.
 
 
-### Test a Model on New Images
+### Model on New Images
 
 #### Five German Traffic Signs (found on the web)
 
@@ -179,11 +179,11 @@ Here are the results of the prediction:
 
 Total Accuracy: 71.43
 
-The model was able to correctly guess 5 of the 7 traffic signs, which gives an accuracy of 71%. This compares poorly to the accuracy on the test set of 96%.
+The model was able to correctly guess 5 of the 7 traffic signs, which gives an accuracy of 71%. This compares poorly to the accuracy on the test set of 96%. This may be in part due to the company logos accross the front of some of the images and also potentially from the formatting of the jpg files to fit the 32x32x3 shape.
 
 Noteably, 50 km/h sign was predicted correctly whereas the 60 km/h sign was not. The 60 km/h sign was predicted as a Roundabout Mandatory sign which has a circular shape. This indicates two things. The first is that the 60 km/h sign has a low reliability of being properly classified. The second indication is that when a Round About Mandatory sign is predicted, there is a low reliability that it is a Round About Mandatory sign. Put more concisely, the 60 km/h classification has a low accuracy whereas the Round About Mandatory classification has a low precision.
 
-Similarly for the Pedestrian sign, the prediction of General Caution is incorrect. Although the two signs do look paticularly similar when heavily pixelated. Regardless, the prediction indicates a low accuracy for pedestrian sign and low precision for the General Caution sign.
+For the Pedestrian sign, the prediction of General Caution is incorrect. In the classifier's defense, the two signs look paticularly similar when heavily pixelated. Regardless, the prediction indicates a low accuracy for pedestrian sign and low precision for the General Caution sign.
 
 
 #### Model Certainty on Web Images
